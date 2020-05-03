@@ -1,7 +1,8 @@
+// eslint-disable-next-line no-magic-numbers
 function palindrome(number, i = 0) {
   const result = {};
-  let reverseNumber = number.toString().split('').reverse().join('')
-  let originNumber = number.toString();
+  const reverseNumber = number.toString().split('').reverse().join('');
+  const originNumber = number.toString();
 
   i++;
   if (originNumber === reverseNumber) {
@@ -10,6 +11,10 @@ function palindrome(number, i = 0) {
 
     return result;
   } else {
-    return palindrome(+originNumber + +reverseNumber, i++);
+    try {
+      return palindrome(+originNumber + +reverseNumber, i++);
+    } catch (error) {
+      return number;
+    }
   }
 }
